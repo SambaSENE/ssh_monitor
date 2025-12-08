@@ -1,6 +1,6 @@
 @"
 # MonitorSSH - Dashboard SSH Interactif
-
+![MonitorSSH Dashboard](screenshot.png)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)](https://streamlit.io)
 [![License MIT](https://img.shields.io/badge/License-MIT-green)](#)
