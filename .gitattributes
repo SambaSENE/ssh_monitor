@@ -1,2 +1,11 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+@"
+.venv/
+__pycache__/
+*.pyc
+.streamlit/
+*.csv
+.DS_Store
+*.egg-info/
+dist/
+build/
+"@ | Out-File -Encoding UTF8 .gitignore
