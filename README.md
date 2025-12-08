@@ -9,12 +9,12 @@ Dashboard professionnel pour l'analyse en temps réel des logs SSH avec filtrage
 
 ## 🎯 Caractéristiques
 
-- **4 Métriques KPI** : Total événements, IPs uniques, tentatives/IP, types d'événements
+- **4 Métriques** : Total événements, IPs uniques, tentatives/IP, types d'événements
 - **Visualisations** : Top 5 IPs, distribution d'événements
 - **Filtrage dynamique** : Selectbox EventId + Multiselect IPs
 - **Performance optimisée** : Caching intelligent avec @st.cache_data
 - **Export CSV** : Télécharger les données filtrées
-- **Design pro** : Thème bleu marine avec interface responsive
+- **Design** : Thème bleu marine avec interface responsive
 
 ## 🚀 Installation Rapide
 
