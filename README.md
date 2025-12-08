@@ -53,7 +53,7 @@ L'app s'ouvrira à `http://localhost:8501`
 
 Application déployée sur **Streamlit Community Cloud** :
 
-👉 [ssh-monitor-XXXXX.streamlit.app](https://ssh-monitor-XXXXX.streamlit.app)
+👉 [https://sshmonitor-fyyeuh8c3fqpaprg73nzbf.streamlit.app/](https://sshmonitor-fyyeuh8c3fqpaprg73nzbf.streamlit.app/)
 
 ### Déployer votre version
 
