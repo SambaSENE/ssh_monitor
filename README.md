@@ -26,7 +26,7 @@ Dashboard professionnel pour l'analyse en temps réel des logs SSH avec filtrage
 
 \`\`\`bash
 # Cloner le repo
-git clone https://github.com/TON_USERNAME/SSH_monitor.git
+git clone https://github.com/sambasene/SSH_monitor.git
 cd SSH_monitor
 
 # Créer environnement virtuel
