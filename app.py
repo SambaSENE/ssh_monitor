@@ -15,14 +15,13 @@ col_header1, col_header2 = st.columns([3, 1])
 with col_header1:
     st.markdown("## 🛡️ MonitorSSH")
     st.markdown(
-        "Surveillance des événements SSH : IP agressives, utilisateurs et types d'événements."
+        "Surveillance des événements SSH : IP agressives, utilisateurs, types d'événements et carte des IP."
     )
 with col_header2:
     st.markdown("### 📡 Mode SOC")
     st.caption("Vue analytique des tentatives de connexion SSH.")
 
 st.markdown("---")
-
 
 # ── DATA ───────────────────────────────────────────────────────
 @st.cache_data
@@ -38,13 +37,13 @@ def load_dataset(file):
     except Exception as e:
         return None, str(e)
 
-
 st.sidebar.header("📥 Données")
 uploaded_file = st.sidebar.file_uploader("Importer un CSV SSH", type=["csv"])
 
 if uploaded_file:
     df, error = load_dataset(uploaded_file)
 else:
+    # On utilise le CSV enrichi (avec lat/lon)
     df, error = load_dataset("dataset_ssh.csv")
 
 if error:
@@ -117,8 +116,6 @@ st.markdown("---")
 st.markdown("### 🔥 IP agressives")
 
 col_ip_left, col_ip_right = st.columns([1.2, 1])
-
-# Palette simple
 colors = ["#2563EB", "#16A34A", "#F97316", "#E11D48", "#7C3AED"]
 
 with col_ip_left:
@@ -164,7 +161,6 @@ st.markdown("### 📶 Histogrammes")
 
 col_h1, col_h2 = st.columns(2)
 
-# Histogramme nombre de tentatives / IP
 with col_h1:
     st.caption("Distribution du nombre de tentatives par IP")
     ip_counts = df_filtered["SourceIP"].value_counts()
@@ -178,7 +174,6 @@ with col_h1:
     else:
         st.info("Pas de données suffisantes pour l'histogramme IP.")
 
-# Histogramme EventId
 with col_h2:
     st.caption("Répartition des EventId")
     fig, ax = plt.subplots(figsize=(5, 3))
@@ -193,6 +188,25 @@ with col_h2:
     plt.xticks(rotation=45)
     plt.tight_layout()
     st.pyplot(fig)
+
+st.markdown("---")
+
+# ── CARTE DES IP ──────────────────────────────────────────────
+st.markdown("### 🌍 Carte des IP sources")
+
+if all(col in df_filtered.columns for col in ["lat", "lon"]):
+    df_ip_map = (
+        df_filtered[["SourceIP", "lat", "lon"]]
+        .dropna(subset=["lat", "lon"])
+        .drop_duplicates(subset=["SourceIP"])
+    )
+    if not df_ip_map.empty:
+        df_ip_map = df_ip_map.rename(columns={"lat": "latitude", "lon": "longitude"})
+        st.map(df_ip_map)
+    else:
+        st.info("Aucune IP avec coordonnées pour afficher la carte.")
+else:
+    st.info("Le dataset ne contient pas de colonnes 'lat' et 'lon' pour afficher une carte des IP.")
 
 st.markdown("---")
 
