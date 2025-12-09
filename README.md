@@ -1,11 +1,10 @@
-@"
 # MonitorSSH - Dashboard SSH Interactif
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)](https://streamlit.io)
 [![License MIT](https://img.shields.io/badge/License-MIT-green)](#)
 
-Dashboard professionnel pour l'analyse en temps réel des logs SSH avec filtrage dynamique et visualisations interactives.
+**Dashboard pour l'analyse en temps réel des logs SSH avec filtrage dynamique et visualisations interactives.**
 
 ## 🎯 Caractéristiques
 
@@ -25,18 +24,18 @@ Dashboard professionnel pour l'analyse en temps réel des logs SSH avec filtrage
 ### Démarrage Local
 
 \`\`\`bash
-# Cloner le repo
+#### Cloner le repo
 git clone https://github.com/sambasene/SSH_monitor.git
 cd SSH_monitor
 
-# Créer environnement virtuel
+#### Créer environnement virtuel
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1  # Windows PowerShell
 
-# Installer dépendances
+#### Installer dépendances
 pip install -r requirements.txt
 
-# Lancer l'app
+#### Lancer l'app
 streamlit run app.py
 \`\`\`
 
@@ -100,15 +99,8 @@ ssh_monitor/
 - **Pandas filtering** : Manipulations données
 - **Matplotlib** : Visualisations
 
-## 📧 Informations
-
-- **Projet** : Brief Simplon - GDE Nancy Cyber
-- **Durée** : 2 jours (Jour 1: Architecture | Jour 2: Interactivité + Déploiement)
-- **Status** : ✅ Complet et en production
-
 ---
 
 **Dernière mise à jour** : Décembre 2025
-"@ | Out-File -Encoding UTF8 README.md
 
 ![MonitorSSH Dashboard](screenshot.png)
